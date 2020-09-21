@@ -1,0 +1,8 @@
+aiohttp==3.6.2
+pytz==2020.1
+requests==2.24.0
+beautifulsoup4==4.9.1
+gevent==20.6.2
+grequests==0.6.0
+lxml==4.5.2
+openpyxl==3.0.5
