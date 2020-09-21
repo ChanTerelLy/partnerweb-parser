@@ -8,8 +8,8 @@ setup(
     description='Partnerweb beeline parser',
     author='chanterelly',
     author_email='partnerweb3@gmail.com',
-    url='https://github.com/ChanTerelLy/partnerweb-parser',
-    download_url='https://github.com/ChanTerelLy/partnerweb-parser/archive/1.0.tar.gz',
+    url='https://github.com/ChanTerelLy/partnerweb_parser',
+    download_url='https://github.com/ChanTerelLy/partnerweb_parser/archive/1.1.tar.gz',
     keywords=['partnerweb', 'beeline'],
     install_requires=[
         'aiohttp',
