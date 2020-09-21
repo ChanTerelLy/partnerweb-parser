@@ -1,14 +1,14 @@
 from distutils.core import setup
 setup(
-  name = 'partnerweb_parser',
-  packages = ['partnerweb_parser'],
+  name = 'partnerweb-parser',
+  packages = ['partnerweb-parser'],
   version = '1.0',
   license='MIT',
   description = 'Partnerweb beeline parser',
   author = 'chanterelly',
   author_email = 'partnerweb3@gmail.com',
-  url = 'https://github.com/ChanTerelLy/partnerweb_parser',
-  download_url = 'https://github.com/ChanTerelLy/partnerweb_parser/v_01.tar.gz',
+  url = 'https://github.com/ChanTerelLy/partnerweb-parser',
+  download_url = 'https://github.com/ChanTerelLy/partnerweb-parser/v_01.tar.gz',
   keywords = ['partnerweb', 'beeline'],
   install_requires=[
           'aiohttp',
