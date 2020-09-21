@@ -1,9 +1,9 @@
 from distutils.core import setup
 
 setup(
-    name='partnerweb-parser',
-    packages=['partnerweb-parser'],
-    version='1.0',
+    name='partnerweb_parser',
+    packages=['partnerweb_parser'],
+    version='1.1',
     license='MIT',
     description='Partnerweb beeline parser',
     author='chanterelly',
