@@ -536,7 +536,10 @@ class NewDesign(Basket, TicketParser):
         ticket_dict = {}
         rc = [grequests.get(url, session=self.session) for url in urls]
         for index, response in enumerate(grequests.map(rc)):
-            ticket_dict[index] = response.json()
+            try:
+                ticket_dict[index] = response.json()
+            except Exception as e:
+                print(e)
         return ticket_dict
 
     def search_by(self, phone, city='', dateFrom=False, dateTo=False, number='', shop='', status='', pages=None):

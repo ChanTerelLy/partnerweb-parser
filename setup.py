@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name='partnerweb_parser',
     packages=['partnerweb_parser'],
-    version='1.1',
+    version='1.1.1',
     license='MIT',
     description='Partnerweb beeline parser',
     author='chanterelly',
