@@ -24,27 +24,36 @@ from datetime import timedelta
 import datetime
 
 class Auth:
-    def __init__(self, login, workercode, password):
+    def __init__(self, login=False, workercode=False, password=False, sessionid=False):
         self.session = requests.Session()
         self.data = {}
-        self.data['login'] = login
-        self.data['workercode'] = workercode
-        self.data['password'] = password
         self.headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,'
                                       ' likeGecko) Chrome/70.0.3538.110 Safari/537.36',
                         'content-type': 'application/x-www-form-urlencoded', 'upgrade-insecure-requests': '1'}
-        self.auth = self.session.post('https://partnerweb.beeline.ru', self.data, headers=self.headers)
+        if not sessionid:
+            self.data['login'] = login
+            self.data['workercode'] = workercode
+            self.data['password'] = password
+            self.auth = self.session.post('https://partnerweb.beeline.ru', self.data, headers=self.headers)
+        else:
+            self.session.cookies['sessionid'] = sessionid
+            self.auth = self.session.get('https://partnerweb.beeline.ru', headers=self.headers)
         self.auth_response = self.auth.text
         self.auth_status = self.check_auth_status()
         self.header = self.get_headers()
         self.cookies = self.get_cookie()
+        self.sessionid = self.get_pw_session_id()
         self.account_type = self.get_account_type(self.user_rights())
 
     def check_auth_status(self):
         return False if self.auth_response.count('Ошибка авторизации') else True
 
     def get_cookie(self):
-        return self.auth.cookies.get_dict()
+        return self.session.cookies.get_dict()
+
+    def get_pw_session_id(self):
+        return self.get_cookie().get('sessionid')
+
     def get_headers(self):
         return self.auth.headers
 
@@ -872,3 +881,6 @@ class Worker:
                 worker = Worker(cols[0], cols[1], cols[2], cols[3], a)
                 workers.append(worker)
         return workers
+
+if __name__ == '__main__':
+    Auth(sessionid='frgtq881e73rqyq7y0jrvr9i9agx4dqw')
